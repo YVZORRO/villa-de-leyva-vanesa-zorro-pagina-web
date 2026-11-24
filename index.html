@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Villa de Leyva - Un destino mágico</title>
+
+<style>
+
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #F5EBDD;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #49382B;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #F0E4D2;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 5px 5px 12px #B9A18B;
+}
+
+/* TITULOS */
+
+h1 {
+    font-family: Georgia, serif;
+    text-align: center;
+    color: #A65335;
+    text-shadow: 3px 3px 5px #C9A58B;
+    font-size: clamp(27px, 4vw, 40px);
+}
+
+h2 {
+    background-color: #A65335;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px #B89B84;
+    font-size: clamp(19px, 2.5vw, 25px);
+    scroll-margin-top: 15px;
+}
+
+h3 {
+    font-family: Georgia, serif;
+    text-align: center;
+    background-color: #D9B98C;
+    color: #563B2B;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 7px #B9A18B;
+    font-size: clamp(17px, 2.5vw, 21px);
+}
+
+p {
+    text-align: justify;
+    line-height: 1.7;
+    background-color: #FFF9F0;
+    padding: 17px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 8px #C8B9A5;
+    font-size: 16px;
+}
+
+/* IMAGEN PRINCIPAL */
+
+.imagen-principal {
+    width: 100%;
+    max-width: 750px;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto;
+    border-radius: 22px;
+    border: 5px solid #D9B98C;
+    box-shadow: 7px 7px 14px #8D705B;
+}
+
+/* ENLACES */
+
+a {
+    color: #A65335;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 8px;
+}
+
+a:hover {
+    color: #58734B;
+    text-decoration: underline;
+}
+
+.menu {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.menu a {
+    display: inline-block;
+    background-color: #E8D8C2;
+    padding: 11px 16px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #B9A18B;
+}
+
+/* TARJETAS DE ATRACTIVOS */
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin: 25px 0;
+}
+
+.tarjeta {
+    background-color: #FFF9F0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 4px 4px 10px #B9A18B;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 0;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 8px 15px #A9957E;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta h3 {
+    margin: 12px;
+    box-shadow: none;
+}
+
+.tarjeta p {
+    background: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 5px 15px 18px;
+    font-size: 14px;
+}
+
+/* IMAGEN DE GASTRONOMÍA */
+
+.imagen-gastronomia {
+    width: 100%;
+    max-width: 650px;
+    height: 300px;
+    display: block;
+    margin: 25px auto;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid #D9B98C;
+    box-shadow: 6px 6px 12px #A9957E;
+}
+
+/* LUGARES DESPLEGABLES */
+
+details {
+    margin: 15px 0;
+    background-color: #E8D8C2;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 2px 2px 6px #B9A18B;
+}
+
+summary {
+    cursor: pointer;
+    color: #563B2B;
+    font-weight: bold;
+    padding: 8px;
+    line-height: 1.5;
+}
+
+summary:hover {
+    color: #A65335;
+}
+
+summary::marker {
+    color: #A65335;
+}
+
+details details {
+    background-color: #F5EBDD;
+    margin: 12px 0;
+}
+
+/* IMAGENES DE CADA LUGAR */
+
+.imagen-lugar {
+    width: 100%;
+    max-width: 550px;
+    height: 280px;
+    display: block;
+    margin: 18px auto;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 4px solid #D9B98C;
+    box-shadow: 5px 5px 12px #A9957E;
+}
+
+.contenido-lugar p {
+    margin-top: 12px;
+}
+
+/* LISTAS */
+
+li {
+    margin: 12px 0;
+    padding: 5px;
+}
+
+/* MAPA */
+
+.mapa {
+    width: 100%;
+    height: 350px;
+    border: 3px solid #A65335;
+    border-radius: 15px;
+    display: block;
+}
+
+/* CHATBOT DE TYPEBOT */
+
+.contenedor-chatbot {
+    width: 100%;
+    max-width: 750px;
+    margin: 25px auto;
+    background-color: #FFF9F0;
+    padding: 10px;
+    border-radius: 18px;
+    border: 4px solid #D9B98C;
+    box-shadow: 5px 5px 12px #A9957E;
+    overflow: hidden;
+}
+
+.contenedor-chatbot iframe {
+    width: 100%;
+    height: 600px;
+    max-width: 100%;
+    display: block;
+    border: none;
+    border-radius: 12px;
+}
+
+/* PIE DE PAGINA */
+
+footer {
+    text-align: center;
+    background-color: #6D5945;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px #A9957E;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE PARA TABLETAS */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .contenedor {
+        padding: 20px;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .tarjeta img {
+        height: 170px;
+    }
+
+    .imagen-principal {
+        height: 280px;
+    }
+
+    .imagen-gastronomia {
+        height: 250px;
+    }
+
+    .imagen-lugar {
+        height: 250px;
+    }
+
+    .contenedor-chatbot iframe {
+        height: 550px;
+    }
+}
+
+/* RESPONSIVE PARA CELULARES */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 7px;
+    }
+
+    .contenedor {
+        padding: 13px;
+        margin: 8px auto;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        padding: 10px;
+        font-size: 19px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    p {
+        font-size: 14px;
+        padding: 13px;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .tarjeta img {
+        height: 210px;
+    }
+
+    .imagen-principal {
+        height: 220px;
+        border-radius: 15px;
+    }
+
+    .imagen-gastronomia {
+        height: 210px;
+    }
+
+    .imagen-lugar {
+        height: 210px;
+    }
+
+    .menu a {
+        font-size: 13px;
+        margin: 5px;
+    }
+
+    .mapa {
+        height: 280px;
+    }
+
+    .contenedor-chatbot {
+        padding: 5px;
+    }
+
+    .contenedor-chatbot iframe {
+        height: 500px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<!-- ENCABEZADO -->
+
+<h1>Descubre la magia de Villa de Leyva 🏘️</h1>
+
+<hr style="width: 80%; max-width: 600px; height: 5px; background-color: #A65335; border: none;">
+
+<h3>Un destino lleno de historia, cultura y naturaleza</h3>
+
+<div class="menu">
+    <a href="#final">Final</a>
+    <a href="#atractivos">Principales atractivos</a>
+    <a href="#gastronomia">Tradiciones y gastronomía</a>
+    <a href="#lugares">Lugares que no te puedes perder</a>
+</div>
+
+<p>
+Villa de Leyva es uno de los municipios más hermosos del departamento
+de Boyacá. Se caracteriza por sus calles empedradas, sus casas blancas,
+sus balcones coloniales y sus paisajes naturales. Es un lugar donde
+la historia y la tranquilidad se unen para ofrecer una experiencia
+inolvidable a sus visitantes.
+</p>
+
+<p>
+Este municipio fue fundado en 1572 y conserva gran parte de su
+arquitectura colonial. Su impresionante Plaza Mayor, sus construcciones
+antiguas y sus tradiciones culturales lo convierten en uno de los
+destinos turísticos más importantes de Colombia.
+</p>
+
+<img class="imagen-principal"
+src="imagenes/villa-leyva.jpg"
+alt="Vista panorámica de Villa de Leyva">
+
+<h3>¿Qué experiencias puedes disfrutar?</h3>
+
+<p>
+En Villa de Leyva puedes disfrutar de recorridos por sus calles
+históricas, visitar tiendas artesanales, conocer museos, probar
+deliciosos platos típicos y contemplar sus hermosos paisajes.
+También puedes realizar caminatas ecológicas y actividades
+de aventura.
+</p>
+
+<!-- PRINCIPALES ATRACTIVOS -->
+
+<h2 id="atractivos">Principales atractivos turísticos</h2>
+
+<p>
+Villa de Leyva cuenta con diferentes lugares turísticos que
+representan su riqueza histórica, cultural y natural. Estos son
+algunos de los sitios más conocidos que puedes visitar.
+</p>
+
+<div class="galeria">
+
+    <div class="tarjeta">
+        <img src="imagenes/plaza-mayor.jpg" alt="Plaza Mayor de Villa de Leyva">
+        <h3>Plaza Mayor</h3>
+        <p>Conoce una de las plazas empedradas más grandes y hermosas de Colombia.</p>
+    </div>
+
+    <div class="tarjeta">
+        <img src="imagenes/casa-terracota.jpg" alt="Casa Terracota">
+        <h3>Casa Terracota</h3>
+        <p>Descubre una construcción sorprendente elaborada principalmente en barro.</p>
+    </div>
+
+    <div class="tarjeta">
+        <img src="imagenes/pozos-azules.jpg" alt="Pozos Azules">
+        <h3>Pozos Azules</h3>
+        <p>Disfruta de sus llamativas aguas azules rodeadas de naturaleza.</p>
+    </div>
+
+    <div class="tarjeta">
+        <img src="imagenes/museo-paleontologico.jpg" alt="Museo Paleontológico">
+        <h3>Museo Paleontológico</h3>
+        <p>Conoce los fósiles y la historia natural de esta región.</p>
+    </div>
+
+    <div class="tarjeta">
+        <img src="imagenes/desierto.jpg" alt="Desierto de Villa de Leyva">
+        <h3>Desierto de Villa de Leyva</h3>
+        <p>Explora un paisaje natural de terrenos secos y formaciones geológicas.</p>
+    </div>
+
+</div>
+
+<!-- TRADICIONES Y GASTRONOMÍA -->
+
+<details id="gastronomia" open>
+
+<summary>
+<h2>Tradiciones y gastronomía</h2>
+</summary>
+
+<p>
+La gastronomía de Villa de Leyva conserva sabores tradicionales
+de Boyacá. Entre sus preparaciones se encuentran el cocido
+boyacense, la arepa boyacense, las almojábanas y los dulces
+tradicionales. Sus celebraciones culturales y ferias artesanales
+también hacen parte de su identidad.
+</p>
+
+<img class="imagen-gastronomia"
+src="imagenes/gastronomia.jpg"
+alt="Gastronomía y tradiciones típicas de Boyacá">
+
+<p>
+Además de su comida típica, Villa de Leyva se destaca por sus
+artesanías, festivales, celebraciones religiosas y eventos culturales.
+Estas tradiciones permiten conocer las costumbres de sus habitantes
+y conservar la identidad cultural de la región.
+</p>
+
+</details>
+
+<!-- LUGARES QUE NO TE PUEDES PERDER -->
+
+<details id="lugares" open>
+
+<summary>
+<h2>Lugares que no te puedes perder</h2>
+</summary>
+
+<ol>
+
+<li>
+<details>
+<summary>Plaza Mayor</summary>
+<div class="contenido-lugar">
+
+<img class="imagen-lugar"
+src="imagenes/plaza-mayor.jpg"
+alt="Plaza Mayor de Villa de Leyva">
+
+<p>
+La Plaza Mayor es uno de los lugares más representativos de Villa de Leyva y se considera una de las plazas empedradas más grandes de Colombia, con aproximadamente 14.000 metros cuadrados. Se encuentra en el centro histórico del municipio y se caracteriza por su suelo de piedra, sus construcciones coloniales de color blanco y una fuente de agua ubicada en el centro. A su alrededor se encuentran la iglesia de Nuestra Señora del Rosario, restaurantes, tiendas de artesanías y diferentes establecimientos comerciales. Es un espacio de encuentro para habitantes y visitantes, donde también se realizan festivales, celebraciones y actividades culturales.
+</p>
+
+</div>
+</details>
+</li>
+
+<li>
+<details>
+<summary>Casa Terracota</summary>
+<div class="contenido-lugar">
+
+<img class="imagen-lugar"
+src="imagenes/casa-terracota.jpg"
+alt="Casa Terracota de Villa de Leyva">
+
+<p>
+La Casa Terracota es una construcción muy particular ubicada en Villa de Leyva, reconocida por ser una de las casas de cerámica y barro más grandes del mundo. Fue diseñada por el arquitecto colombiano Octavio Mendoza y elaborada principalmente con arcilla, utilizando técnicas de moldeado y cocción. Su estructura tiene formas curvas y originales que se integran con el paisaje natural. En su interior se pueden observar habitaciones, muebles, mesas, camas y diferentes elementos fabricados con barro. Este lugar combina la arquitectura, el arte y la creatividad, convirtiéndose en uno de los atractivos turísticos más curiosos del municipio.
+</p>
+
+</div>
+</details>
+</li>
+
+<li>
+<details>
+<summary>Pozos Azules</summary>
+<div class="contenido-lugar">
+
+<img class="imagen-lugar"
+src="imagenes/pozos-azules.jpg"
+alt="Pozos Azules de Villa de Leyva">
+
+<p>
+Pozos Azules es un atractivo natural ubicado a las afueras de Villa de Leyva. Está conformado por varias lagunas artificiales que llaman la atención por el color azul turquesa de sus aguas, el cual contrasta con los tonos secos y amarillentos del paisaje que las rodea. Este lugar ofrece un ambiente tranquilo para disfrutar de la naturaleza, tomar fotografías y realizar caminatas por sus alrededores. Es uno de los sitios más visitados por los turistas debido a su belleza y a sus paisajes únicos. Es importante tener en cuenta que no está permitido bañarse en sus aguas, por lo que se recomienda respetar las indicaciones del lugar.
+</p>
+
+</div>
+</details>
+</li>
+
+<li>
+<details>
+<summary>Museo Paleontológico</summary>
+<div class="contenido-lugar">
+
+<img class="imagen-lugar"
+src="imagenes/museo-paleontologico.jpg"
+alt="Museo Paleontológico de Villa de Leyva">
+
+<p>
+El Museo Paleontológico de Villa de Leyva pertenece a la Universidad Nacional de Colombia y se encuentra en una antigua construcción colonial conocida como el Molino de la Osada. Este museo conserva una importante colección de fósiles que permiten conocer cómo era la vida en esta región hace millones de años, cuando gran parte del territorio estaba cubierto por el mar. Entre sus exhibiciones se encuentran restos de animales marinos, plantas y organismos pertenecientes principalmente al periodo Cretácico. Es un lugar de gran importancia científica, educativa y cultural, ya que permite aprender sobre la evolución de la vida, la historia geológica y la riqueza paleontológica de Villa de Leyva.
+</p>
+
+</div>
+</details>
+</li>
+
+<li>
+<details>
+<summary>Desierto de Villa de Leyva</summary>
+<div class="contenido-lugar">
+
+<img class="imagen-lugar"
+src="imagenes/desierto.jpg"
+alt="Desierto de Villa de Leyva">
+
+<p>
+El Desierto de Villa de Leyva es una zona de paisaje semidesértico que se caracteriza por sus terrenos secos, montañas de tonos rojizos y amarillentos, vegetación escasa y formaciones naturales creadas por la erosión. Aunque se conoce popularmente como desierto, no es un desierto de arena como los que se encuentran en otras partes del mundo, sino un territorio con condiciones secas y una apariencia árida. Esta zona tiene un gran valor geológico y paleontológico, porque hace millones de años estuvo cubierta por el mar y en sus alrededores se han encontrado numerosos fósiles. Es un destino ideal para apreciar la naturaleza, realizar recorridos y conocer parte de la historia de la Tierra.
+</p>
+
+</div>
+</details>
+</li>
+
+<li>
+<details>
+<summary>Parque Arqueológico de Monquirá</summary>
+<div class="contenido-lugar">
+
+<img class="imagen-lugar"
+src="imagenes/parque-monquira.jpg"
+alt="Parque Arqueológico de Monquirá El Infiernito">
+
+<p>
+El Parque Arqueológico de Monquirá, conocido popularmente como El Infiernito, es un importante sitio arqueológico ubicado a pocos kilómetros del centro de Villa de Leyva. Este lugar conserva antiguos monumentos de piedra que fueron construidos por comunidades prehispánicas y que tienen aproximadamente 2.200 años de antigüedad. Entre sus principales elementos se encuentran grandes columnas de piedra organizadas en diferentes espacios. Según las investigaciones, el sitio pudo haber sido utilizado para realizar ceremonias y rituales relacionados con la fertilidad, así como para observar los movimientos del sol y reconocer las temporadas del año. Es un espacio de gran importancia histórica y cultural porque permite conocer las costumbres, los conocimientos y las creencias de los antiguos habitantes de la región.
+</p>
+
+</div>
+</details>
+</li>
+
+<li>
+<details>
+<summary>Convento de Santo Ecce Homo</summary>
+<div class="contenido-lugar">
+
+<img class="imagen-lugar"
+src="imagenes/convento-ecce-homo.jpg"
+alt="Convento de Santo Ecce Homo">
+
+<p>
+El Convento de Santo Ecce Homo es una construcción religiosa e histórica ubicada en el campo, en los alrededores de Villa de Leyva, cerca del municipio de Sutamarchán. Fue fundado por la comunidad dominica durante el siglo XVII y se destaca por su arquitectura colonial, sus paredes de piedra, sus corredores y su hermoso patio central. En su interior se pueden apreciar elementos religiosos, obras de arte, objetos antiguos y detalles arquitectónicos que reflejan la vida de las comunidades religiosas durante la época colonial. Además de su importancia espiritual, el convento representa una parte fundamental de la historia y el patrimonio cultural de la región, siendo un lugar que invita a conocer el pasado religioso de Boyacá.
+
+Aunque suele incluirse en los recorridos turísticos de Villa de Leyva, el Convento de Santo Ecce Homo está ubicado en jurisdicción de Sutamarchán, Boyacá, en la vía que comunica con Villa de Leyva. Fue fundado por los frailes dominicos el 15 de marzo de 1620. Su arquitectura conserva un claustro con corredores, patios y gruesos muros de piedra, además de elementos religiosos e históricos que reflejan la época colonial. Este monasterio es considerado patrimonio arquitectónico de Colombia y representa un importante legado de la historia religiosa de la región.
+</p>
+
+</div>
+</details>
+</li>
+
+</ol>
+</details>
+
+<!-- MAPA Y ENLACES -->
+
+<h2>Conoce más sobre Villa de Leyva</h2>
+
+<p>
+Si deseas descubrir más información sobre este hermoso municipio,
+sus actividades y sus atractivos turísticos, visita el siguiente enlace:
+</p>
+
+<iframe
+class="mapa"
+src="https://maps.google.com/maps?q=Villa%20de%20Leyva%20Boyaca&t=&z=13&ie=UTF8&iwloc=&output=embed"
+allowfullscreen
+loading="lazy"
+title="Mapa de Villa de Leyva">
+</iframe>
+
+<p style="text-align:center;">
+<a href="https://www.villadeleyva-boyaca.gov.co/"
+target="_blank"
+rel="noopener noreferrer">
+Conoce más sobre Villa de Leyva haciendo clic aquí
+</a>
+</p>
+
+<!-- CHATBOT DE TYPEBOT -->
+
+<h2>Asistente virtual de Villa de Leyva MILA</h2>
+
+<p>
+¿Tienes preguntas sobre Hospedajes disponibles en Villa de Leyva?
+Interactúa con nuestra asistente virtual Mila y descubre
+más información sobre sus diferentes Hoteles, Precios y Servicios.
+</p>
+
+<div class="contenedor-chatbot">
+
+    <iframe
+        title="Chatbot de Villa de Leyva"
+        src="https://typebot.co/mila-chat-bot-g9m8b4h"
+        width="100%"
+        height="600"
+        style="border: none;"
+        allow="clipboard-write"
+        loading="lazy">
+    </iframe>
+
+</div>
+
+<hr>
+
+<!-- PIE DE PAGINA -->
+
+<footer id="final">
+    &copy; Todos los derechos reservados<br>
+    Creado por: Yineth Vanesa Zorro - 2026
+</footer>
+
+</div>
+
+</body>
+</html>
